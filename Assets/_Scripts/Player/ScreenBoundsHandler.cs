@@ -4,30 +4,45 @@ public class ScreenBoundsHandler : MonoBehaviour
 {
     private Camera mainCamera;
     private Vector2 objectBounds;
-    private PlayerMovement movementScript;
+    private Player player;
 
     public bool IsActive { get; set; } = true;
 
-    void Start()
+    private void Start()
     {
         mainCamera = Camera.main;
-        movementScript = GetComponent<PlayerMovement>();
+
+
+        player = Player.Instance;
+
 
         if (TryGetComponent<SpriteRenderer>(out var spriteRenderer))
+        {
             objectBounds = spriteRenderer.bounds.extents;
+        }
         else if (TryGetComponent<Collider2D>(out var col))
+        {
             objectBounds = col.bounds.extents;
+        }
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
-        if (!IsActive || movementScript == null) return;
+        if (!IsActive || player == null || player.Movement == null) return;
+
+
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+            if (mainCamera == null) return;
+        }
 
         Vector3 pos = transform.position;
         Vector3 minBounds = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, mainCamera.nearClipPlane));
         Vector3 maxBounds = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, mainCamera.nearClipPlane));
 
-        Vector2 dir = movementScript.Direction;
+
+        Vector2 dir = player.Movement.Direction;
         bool bounced = false;
 
         if ((pos.x - objectBounds.x <= minBounds.x && dir.x < 0) || (pos.x + objectBounds.x >= maxBounds.x && dir.x > 0))
@@ -44,7 +59,7 @@ public class ScreenBoundsHandler : MonoBehaviour
 
         if (bounced)
         {
-            movementScript.SetDirection(dir);
+            player.Movement.SetDirection(dir);
         }
     }
 }
