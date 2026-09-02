@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &143564300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 143564301}
+  m_Layer: 0
+  m_Name: '---------------------------------  '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &143564301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143564300}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3521, y: 0.42305, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &146912318
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +244,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &339131115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3913202189582928987, guid: 9ed6d691c1c36b3438e6b1d560f03968, type: 3}
+  m_PrefabInstance: {fileID: 3746221455279893992}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &339131124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339131115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961c21341f6e3994087ad9e713821dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBounceRewardHandler
+  cornerBounceThreshold: 0.05
+  normalBounceReward: 1
+  cornerBounceReward: 100
+--- !u!114 &339131125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339131115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34337900be4f80f40864b4cafbd01a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSkillPoints
 --- !u!1 &497013095
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,8 +492,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb06ec785dd3e3545891c02013f05fb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorPairTriggerController
-  pairedObject: {fileID: 0}
+  pairedObject: {fileID: 737251517}
   myCollider: {fileID: 1047228465}
+--- !u!1 &1212833913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1212833915}
+  - component: {fileID: 1212833914}
+  - component: {fileID: 1212833916}
+  m_Layer: 5
+  m_Name: GameScreenUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1212833914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212833913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 541a8e96258199b4fb1022dc0e2fd87a, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: b90890f4e67e94b4d8ff4cae951a1201, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &1212833915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212833913}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1212833916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212833913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d23cd4b2cc4ba4495420d7d048ebfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillPointUI
+  uiDocument: {fileID: 1212833914}
 --- !u!1 &1294132937
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,11 +909,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6160682951122701098, guid: 9ed6d691c1c36b3438e6b1d560f03968, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.31
+      value: -11.55
       objectReference: {fileID: 0}
     - target: {fileID: 6160682951122701098, guid: 9ed6d691c1c36b3438e6b1d560f03968, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.23
+      value: 2.57
       objectReference: {fileID: 0}
     - target: {fileID: 6160682951122701098, guid: 9ed6d691c1c36b3438e6b1d560f03968, type: 3}
       propertyPath: m_LocalPosition.z
@@ -818,7 +950,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3913202189582928987, guid: 9ed6d691c1c36b3438e6b1d560f03968, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 339131125}
+    - targetCorrespondingSourceObject: {fileID: 3913202189582928987, guid: 9ed6d691c1c36b3438e6b1d560f03968, type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 339131124}
   m_SourcePrefab: {fileID: 100100000, guid: 9ed6d691c1c36b3438e6b1d560f03968, type: 3}
 --- !u!1001 &4022822536781634404
 PrefabInstance:
@@ -1057,6 +1195,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 7333608001256895674}
   - {fileID: 210089262}
+  - {fileID: 1212833915}
+  - {fileID: 143564301}
   - {fileID: 7460396582387168835}
   - {fileID: 4022822536781634404}
   - {fileID: 497013096}

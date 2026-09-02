@@ -1,0 +1,5 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="CurrentSkillPointsContainer" style="flex-grow: 1; position: absolute; height: 92px; width: 265px; top: 20px; left: 4px;">
+        <ui:Label text="Skill Points: " name="SkillPointLabel" style="height: 77px; width: 512px; -unity-text-align: upper-center; white-space: normal; font-size: 50px; -unity-font-style: bold;"/>
+    </ui:VisualElement>
+</ui:UXML>

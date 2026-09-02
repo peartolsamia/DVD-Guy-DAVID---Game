@@ -49,12 +49,14 @@ public class ScreenBoundsHandler : MonoBehaviour
         {
             dir.x *= -1;
             bounced = true;
+            player.BounceReward?.RegisterBounce();
         }
 
         if ((pos.y - objectBounds.y <= minBounds.y && dir.y < 0) || (pos.y + objectBounds.y >= maxBounds.y && dir.y > 0))
         {
             dir.y *= -1;
             bounced = true;
+            player.BounceReward?.RegisterBounce();
         }
 
         if (bounced)

@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     public PlayerMovement Movement { get; private set; }
     public PlayerHealth Health { get; private set; }
+    public PlayerSkillPoints SkillPoints { get; private set; }
+    public PlayerBounceRewardHandler BounceReward { get; private set; }
 
     private void Awake()
     {
@@ -25,6 +27,8 @@ public class Player : MonoBehaviour
 
         Movement = GetComponent<PlayerMovement>();
         Health = GetComponent<PlayerHealth>();
+        SkillPoints = GetComponent<PlayerSkillPoints>();
+        BounceReward = GetComponent<PlayerBounceRewardHandler>();
     }
 
     private void OnDestroy()

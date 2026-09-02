@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
         Vector2 normal = collision.GetContact(0).normal;
         Direction = Vector2.Reflect(Direction, normal).normalized;
         UpdateVelocity();
+
+        Player.Instance?.BounceReward?.RegisterBounce();
     }
 
     public void RefreshBaseSpeed()
