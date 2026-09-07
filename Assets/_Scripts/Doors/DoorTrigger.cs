@@ -1,12 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
-public enum DoorType { Top, Bottom, Left, Right }
+public enum DoorType { None, Top, Bottom, Left, Right }
 
 public class DoorTrigger : MonoBehaviour
 {
     [SerializeField] private DoorType doorType;
-    [SerializeField] private float boundsDisableDuration = 0.5f;
+    [SerializeField] private float boundsDisableDuration = 0.3f;
 
     private CameraController cameraController;
 
@@ -20,7 +20,8 @@ public class DoorTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent<ScreenBoundsHandler>(out var boundsHandler))
+
+        if (other.CompareTag("Player") && other.TryGetComponent<ScreenBoundsHandler>(out var boundsHandler))
         {
             StartCoroutine(DisableBoundsRoutine(boundsHandler));
 

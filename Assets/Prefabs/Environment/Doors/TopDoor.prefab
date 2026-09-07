@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6342615885150508477}
   - component: {fileID: 8853190400344758747}
   - component: {fileID: 5444555563101721355}
+  - component: {fileID: 2256014189750745954}
+  - component: {fileID: -8041978996408223879}
   - component: {fileID: 4537454487662982159}
   - component: {fileID: 8478512528229161238}
   m_Layer: 0
@@ -30,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.7071, y: 7.29, z: 0}
-  m_LocalScale: {x: 2.9783819, y: 0.103721306, z: 1}
+  m_LocalScale: {x: 15, y: 0.103721306, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -47,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f68a2f2f03db544b9d903f501c1a8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorTrigger
-  doorType: 0
-  boundsDisableDuration: 0.5
+  doorType: 1
+  boundsDisableDuration: 0.3
 --- !u!114 &5444555563101721355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +64,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorPairTriggerController2D
   pairedObject: {fileID: 0}
-  myCollider: {fileID: 0}
+  doorInputHandler: {fileID: 2256014189750745954}
+  closeDelay: 0.4
+--- !u!114 &2256014189750745954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825037260205682181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 656bad7f74007a044b726ad1402bc776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorInputHandler
+  doorType: 1
+  doorCollider: {fileID: 8478512528229161238}
+  doorSpriteRenderer: {fileID: 4537454487662982159}
+--- !u!114 &-8041978996408223879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825037260205682181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25633d7a88f4bff47b2934773e12b5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorVisualFeedback
+  doorSpriteRenderer: {fileID: 4537454487662982159}
+  openAlpha: 0.1
 --- !u!212 &4537454487662982159
 SpriteRenderer:
   serializedVersion: 2

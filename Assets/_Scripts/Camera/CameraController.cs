@@ -25,5 +25,8 @@ public class CameraController : MonoBehaviour
         }
 
         transform.position = targetPos;
+
+        // Force camera matrix to update immediately so frustum planes update in the exact same frame
+        cam.ResetWorldToCameraMatrix();
     }
 }

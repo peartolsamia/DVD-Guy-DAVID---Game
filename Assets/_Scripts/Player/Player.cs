@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
 
-    public PlayerMovement Movement { get; private set; }
-    public PlayerHealth Health { get; private set; }
+    public BouncingMovement Movement { get; private set; }
+    public Health Health { get; private set; }
     public PlayerSkillPoints SkillPoints { get; private set; }
     public PlayerBounceRewardHandler BounceReward { get; private set; }
 
@@ -25,8 +25,8 @@ public class Player : MonoBehaviour
             return;
         }
 
-        Movement = GetComponent<PlayerMovement>();
-        Health = GetComponent<PlayerHealth>();
+        Movement = GetComponent<BouncingMovement>();
+        Health = GetComponent<Health>();
         SkillPoints = GetComponent<PlayerSkillPoints>();
         BounceReward = GetComponent<PlayerBounceRewardHandler>();
     }

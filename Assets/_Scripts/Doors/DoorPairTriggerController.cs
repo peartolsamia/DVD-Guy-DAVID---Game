@@ -1,19 +1,30 @@
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Handles the room-transition door pair: when the player passes through this
+/// door, it opens (so the player can walk through) and, after a short delay,
+/// the paired door in the connected room closes behind them.
+///
+/// Collider state is delegated entirely to DoorInputHandler.SetDoorOpen(),
+/// so this never races against DoorManager's input-driven door toggling.
+/// </summary>
 public class DoorPairTriggerController2D : MonoBehaviour
 {
     [Header("Return door in connected room")]
     [SerializeField] private DoorPairTriggerController2D pairedObject;
 
-    [Header("This door's collider")]
-    [SerializeField] private Collider2D myCollider;
+    [Header("Shared door-state handler (source of truth for this door's collider)")]
+    [SerializeField] private DoorInputHandler doorInputHandler;
+
+    [Header("Delay before the paired door closes behind the player")]
+    [SerializeField] private float closeDelay = 0.4f;
 
     private void Awake()
     {
-        if (myCollider == null)
+        if (doorInputHandler == null)
         {
-            myCollider = GetComponent<Collider2D>();
+            doorInputHandler = GetComponent<DoorInputHandler>();
         }
     }
 
@@ -27,17 +38,16 @@ public class DoorPairTriggerController2D : MonoBehaviour
 
     private IEnumerator HandleTriggerSequence()
     {
-        if (myCollider != null)
+        if (doorInputHandler != null)
         {
-            myCollider.enabled = false;
+            doorInputHandler.SetDoorOpen(true);
         }
 
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(closeDelay);
 
-
-        if (pairedObject != null && pairedObject.myCollider != null)
+        if (pairedObject != null && pairedObject.doorInputHandler != null)
         {
-            pairedObject.myCollider.enabled = true;
+            pairedObject.doorInputHandler.SetDoorOpen(false);
         }
     }
 }

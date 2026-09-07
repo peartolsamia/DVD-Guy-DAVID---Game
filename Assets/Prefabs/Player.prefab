@@ -11,7 +11,11 @@ GameObject:
   - component: {fileID: 6160682951122701098}
   - component: {fileID: 2168421447848832412}
   - component: {fileID: 5091705804862028951}
+  - component: {fileID: 1346598189567396961}
   - component: {fileID: 8579639842830872905}
+  - component: {fileID: 8518097842603963613}
+  - component: {fileID: 5107409213836590089}
+  - component: {fileID: 2518206990288687756}
   - component: {fileID: 6946372973386190133}
   - component: {fileID: 857660432901381906}
   - component: {fileID: 8286640146093511550}
@@ -62,6 +66,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d624b9aa2cb1e8f4f8c13e49505d3495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDVDBounce
+  baseSpeed: 5
+  defaultDirection: {x: 1, y: 1}
+--- !u!114 &1346598189567396961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3913202189582928987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd2b92309061cfb468d079d2614189f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementSync
 --- !u!114 &8579639842830872905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,6 +92,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f0b48e094caa048a790f8550d660d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHealth: 100
+--- !u!114 &8518097842603963613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3913202189582928987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ce3722aab5a124fb34c205c3cfd100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthSync
+--- !u!114 &5107409213836590089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3913202189582928987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34337900be4f80f40864b4cafbd01a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSkillPoints
+--- !u!114 &2518206990288687756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3913202189582928987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961c21341f6e3994087ad9e713821dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBounceRewardHandler
+  cornerBounceThreshold: 0.05
+  normalBounceReward: 1
+  cornerBounceReward: 100
 --- !u!114 &6946372973386190133
 MonoBehaviour:
   m_ObjectHideFlags: 0
