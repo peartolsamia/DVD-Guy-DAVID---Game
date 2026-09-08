@@ -46,7 +46,16 @@ public class DoorInputHandler : MonoBehaviour
         // Seed IsOpen from whatever state the collider was left in (e.g. set in the editor),
         // so the source of truth starts consistent with the actual scene state.
         IsOpen = doorCollider != null && !doorCollider.enabled;
+    }
 
+    private void Start()
+    {
+        // Registration happens in Start, not Awake: Unity guarantees every object's
+        // Awake() has already run before any object's Start() runs, so DoorManager.Instance
+        // is guaranteed to be set here. Registering in Awake() instead is a race condition —
+        // if this door's Awake() happens to run before DoorManager's Awake(), Instance would
+        // still be null, RegisterDoor would silently be skipped (due to ?.), and this door
+        // would be permanently invisible to input with no error ever being thrown.
         DoorManager.Instance?.RegisterDoor(this);
     }
 
