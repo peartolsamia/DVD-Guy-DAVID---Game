@@ -711,6 +711,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BottomDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 6199315247371306063, guid: d4c7405c726706446ba9197c9efa65e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6258153796640578955, guid: d4c7405c726706446ba9197c9efa65e8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.5772
@@ -779,6 +783,14 @@ PrefabInstance:
       propertyPath: pairedObject
       value: 
       objectReference: {fileID: 1875278822}
+    - target: {fileID: 4630257052125824428, guid: 89187b183819092418b15bf2e1b3ac3e, type: 3}
+      propertyPath: m_Color.a
+      value: 0.49019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211075024944030754, guid: 89187b183819092418b15bf2e1b3ac3e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7308472965963061532, guid: 89187b183819092418b15bf2e1b3ac3e, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.10372132
@@ -1694,6 +1706,10 @@ PrefabInstance:
       propertyPath: doorType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 768285090818900387, guid: d4c7405c726706446ba9197c9efa65e8, type: 3}
+      propertyPath: m_Color.a
+      value: 0.49019608
+      objectReference: {fileID: 0}
     - target: {fileID: 1261645252313279448, guid: d4c7405c726706446ba9197c9efa65e8, type: 3}
       propertyPath: myCollider
       value: 
@@ -1708,7 +1724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6199315247371306063, guid: d4c7405c726706446ba9197c9efa65e8, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6258153796640578955, guid: d4c7405c726706446ba9197c9efa65e8, type: 3}
       propertyPath: m_LocalPosition.x

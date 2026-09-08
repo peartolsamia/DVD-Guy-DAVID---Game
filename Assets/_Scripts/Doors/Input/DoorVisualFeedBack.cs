@@ -1,11 +1,11 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
 /// Purely visual. Reflects the door's collider state on its sprite:
-/// - collider enabled (blocking / "kapalý")  -> sprite fully opaque, unchanged.
-/// - collider disabled (passable / "açýk")   -> sprite semi-transparent.
+/// - collider enabled (blocking / "kapalï¿½")  -> sprite fully opaque, unchanged.
+/// - collider disabled (passable / "aï¿½ï¿½k")   -> sprite semi-transparent.
 ///
-/// This component has zero say over door state — it only listens to
+/// This component has zero say over door state ï¿½ it only listens to
 /// DoorInputHandler.OnDoorOpenChanged and reacts. All state logic stays in
 /// DoorInputHandler, keeping each script to a single responsibility.
 /// </summary>
@@ -13,25 +13,49 @@ using UnityEngine;
 public class DoorVisualFeedback : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer doorSpriteRenderer;
-    [SerializeField, Range(0f, 1f)] private float openAlpha = 0.1f;
+    [SerializeField, Range(0f, 1f)] private float openAlpha = 0.5f;
+    [SerializeField, Range(0f, 1f)] private float closedAlpha = 0.1f;
 
     private DoorInputHandler doorInputHandler;
-    private float closedAlpha = 1f;
+    private Collider2D doorCollider;
 
     private void Awake()
     {
         doorInputHandler = GetComponent<DoorInputHandler>();
 
+        // Get the SpriteRenderer directly from this GameObject rather than
+        // reading DoorInputHandler.DoorSpriteRenderer. Unity does NOT guarantee
+        // Awake() order between different components on the same GameObject,
+        // so if DoorInputHandler.Awake() hasn't run yet, its DoorSpriteRenderer
+        // property could still be null here â€” leaving doorSpriteRenderer
+        // permanently unassigned and silently breaking all visual updates.
         if (doorSpriteRenderer == null)
+        {
+            doorSpriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
+        // Fallback for the (unusual) case where the sprite lives on a
+        // different object than DoorInputHandler.
+        if (doorSpriteRenderer == null && doorInputHandler != null)
         {
             doorSpriteRenderer = doorInputHandler.DoorSpriteRenderer;
         }
 
-        if (doorSpriteRenderer != null)
+        // Same reasoning as above, but for the collider: read it straight off
+        // this GameObject instead of trusting doorInputHandler.IsOpen, since
+        // that property is only correct once DoorInputHandler.Awake() has run â€”
+        // and that's not guaranteed to have happened yet at this point.
+        doorCollider = GetComponent<Collider2D>();
+        if (doorCollider == null && doorInputHandler != null)
         {
-            // Remember whatever alpha the sprite was authored with, instead of assuming 1.
-            closedAlpha = doorSpriteRenderer.color.a;
+            doorCollider = doorInputHandler.DoorCollider;
         }
+
+        // Sync the sprite immediately here, straight from the collider's real
+        // enabled state, with zero dependency on any other script's Awake
+        // having already run.
+        bool isOpenAtStart = doorCollider != null && !doorCollider.enabled;
+        HandleDoorOpenChanged(isOpenAtStart);
     }
 
     private void OnEnable()
@@ -39,10 +63,6 @@ public class DoorVisualFeedback : MonoBehaviour
         if (doorInputHandler == null) return;
 
         doorInputHandler.OnDoorOpenChanged += HandleDoorOpenChanged;
-
-        // Sync visuals immediately with whatever state the door is already in
-        // (e.g. after a scene load, before any toggle happens).
-        HandleDoorOpenChanged(doorInputHandler.IsOpen);
     }
 
     private void OnDisable()

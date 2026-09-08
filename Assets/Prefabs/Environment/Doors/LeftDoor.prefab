@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DoorTrigger
   doorType: 3
   boundsDisableDuration: 0.3
+  doorInputHandler: {fileID: 1374425038844126858}
 --- !u!114 &-4134167821249596798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DoorInputHandler
   doorType: 3
   doorCollider: {fileID: 2873467815144961885}
-  doorSpriteRenderer: {fileID: 6594746513371749749}
+  doorSpriteRenderer: {fileID: 0}
 --- !u!114 &-5565378353747608228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,8 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25633d7a88f4bff47b2934773e12b5aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorVisualFeedback
-  doorSpriteRenderer: {fileID: 6594746513371749749}
+  doorSpriteRenderer: {fileID: 0}
   openAlpha: 0.1
+  closedAlpha: 0.5
 --- !u!212 &6594746513371749749
 SpriteRenderer:
   serializedVersion: 2
